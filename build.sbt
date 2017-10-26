@@ -10,5 +10,12 @@ libraryDependencies += javaJdbc
 libraryDependencies += cache
 libraryDependencies += javaWs
 
+libraryDependencies += "mysql" % "mysql-connector-java" % "5.1.44"
 
-libraryDependencies += "mysql" % "mysql-connector-java" % "5.0.11"
+javaOptions in Test ++= Seq(
+  "-Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=9998",
+  "-Xms512M",
+  "-Xmx1536M",
+  "-Xss1M",
+  "-XX:MaxPermSize=384M"
+)
